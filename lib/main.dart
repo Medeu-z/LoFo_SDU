@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'home.dart';
 import 'intro_slider.dart';
 
 void main() {
@@ -17,7 +18,11 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: IntroSliderPage(),
+      initialRoute: '/slider',
+      routes: {
+        '/slider': (context) => const IntroSliderPage(),
+        '/main': (context) => const HomeWidget(),
+      },
     );
   }
 }

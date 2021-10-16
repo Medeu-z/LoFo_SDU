@@ -94,52 +94,56 @@ class _IntroSliderPageState extends State<IntroSliderPage> {
 
   @override
   Widget build(BuildContext context) {
-    return IntroSlider(
-      renderSkipBtn: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "Skip",
-              style: GoogleFonts.roboto(
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black),
+    return Scaffold(
+      body: IntroSlider(
+        renderSkipBtn: Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Skip",
+                style: GoogleFonts.roboto(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black),
+              ),
+            ]),
+        renderNextBtn: OutlinedButton(
+            onPressed: null,
+            style: OutlinedButton.styleFrom(
+              primary: Colors.black,
+              side: BorderSide(color: Colors.black, width: 1.0),
+              shape: StadiumBorder(),
             ),
-          ]),
-      renderNextBtn: OutlinedButton(
-          onPressed: null,
-          style: OutlinedButton.styleFrom(
+            child: Text(
+              "Next",
+              style: GoogleFonts.roboto(
+                  fontSize: 18,
+                  fontWeight: FontWeight.normal,
+                  color: Colors.black),
+            )),
+        renderDoneBtn: ElevatedButton(
+          style: ElevatedButton.styleFrom(
             primary: Colors.black,
-            side: BorderSide(color: Colors.black, width: 1.0),
+            onPrimary: Colors.white,
             shape: StadiumBorder(),
           ),
+          onPressed: (){
+            Navigator.of(context).pushReplacementNamed('/main');
+          },
           child: Text(
-            "Next",
+            "Start",
             style: GoogleFonts.roboto(
-                fontSize: 18,
-                fontWeight: FontWeight.normal,
-                color: Colors.black),
-          )),
-      renderDoneBtn: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          primary: Colors.black,
-          onPrimary: Colors.white,
-          shape: StadiumBorder(),
+                fontSize: 18, fontWeight: FontWeight.normal, color: Colors.white),
+          ),
         ),
-        onPressed: null,
-        child: Text(
-          "Start",
-          style: GoogleFonts.roboto(
-              fontSize: 18, fontWeight: FontWeight.normal, color: Colors.white),
-        ),
+        colorActiveDot: Colors.white,
+        sizeDot: 8.0,
+        typeDotAnimation: dotSliderAnimation.SIZE_TRANSITION,
+        listCustomTabs: this.renderListCustomTabs(),
+        scrollPhysics: BouncingScrollPhysics(),
+        hideStatusBar: false,
       ),
-      colorActiveDot: Colors.white,
-      sizeDot: 8.0,
-      typeDotAnimation: dotSliderAnimation.SIZE_TRANSITION,
-      listCustomTabs: this.renderListCustomTabs(),
-      scrollPhysics: BouncingScrollPhysics(),
-      hideStatusBar: false,
     );
   }
 }
