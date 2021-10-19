@@ -12,9 +12,9 @@ class _HomeWidgetState extends State<HomeWidget> {
   static const textStyle = TextStyle(color: Colors.grey);
   int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
-    Text('Index 1: Add',),
-    Text('Index 2: Home',),
-    Text('Index 3: Portfel',),
+    Text('Index 1: Home',),
+    Text('Index 2: Add',),
+    Text('Index 3: Profile',),
   ];
 
   void _onItemTapped(int index) {
@@ -39,16 +39,16 @@ class _HomeWidgetState extends State<HomeWidget> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.add_circle_outline),
-            label: 'Add',
-          ),
-          BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
           ),
           BottomNavigationBarItem(
+            icon: Icon(Icons.add_circle_outline),
+            label: 'Add',
+          ),
+          BottomNavigationBarItem(
             icon: Icon(Icons.person),
-            label: 'Portfel',
+            label: 'Profile',
           ),
         ],
         currentIndex: _selectedIndex,
