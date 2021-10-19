@@ -129,7 +129,7 @@ class _IntroSliderPageState extends State<IntroSliderPage> {
             shape: StadiumBorder(),
           ),
           onPressed: (){
-            Navigator.of(context).pushReplacementNamed('/main');
+            Navigator.of(context).pushNamed('/main');
           },
           child: Text(
             "Start",

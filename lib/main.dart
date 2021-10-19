@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'home.dart';
-import 'intro_slider.dart';
+import 'package:lofo_app/widgets/home/lofo_info.dart';
+import 'widgets/home.dart';
+import 'widgets/intro_slider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/slider': (context) => const IntroSliderPage(),
         '/main': (context) => const HomeWidget(),
+        '/item_information': (context) => const LoFoItemInfo(),
       },
     );
   }
