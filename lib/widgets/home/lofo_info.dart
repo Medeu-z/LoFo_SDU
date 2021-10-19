@@ -12,7 +12,7 @@ class _LoFoItemInfoState extends State<LoFoItemInfo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('LoFo Item Information'),
+        title: const Text('LoFo Information'),
         centerTitle: true,
         elevation: 0,
         backgroundColor: Colors.blueAccent.withOpacity(0.1),

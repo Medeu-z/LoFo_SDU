@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'category_top.dart';
 import 'home_page_item.dart';
 
 class HomePageWidget extends StatefulWidget {
@@ -19,17 +20,25 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   Widget build(BuildContext context) {
     return Container(
         color: Colors.blueAccent.withOpacity(0.1),
-        child: ListView.builder(
-          physics: BouncingScrollPhysics(),
-          itemCount: dataSet.length,
-          itemBuilder: (BuildContext context, int index) {
-            return GestureDetector(
-                onTap: (){
-                  Navigator.of(context).pushNamed('/item_information');
-                },
-                child: HomePageItemWidget(data: dataSet[index],)
-            );
-          }
+        child: Column(
+          children: [
+            const TopListviewWidget(),
+            const SizedBox(height: 10,),
+            Expanded(
+              child: ListView.builder(
+                physics: const BouncingScrollPhysics(),
+                itemCount: dataSet.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return GestureDetector(
+                      onTap: (){
+                        Navigator.of(context).pushNamed('/item_information');
+                      },
+                      child: HomePageItemWidget(data: dataSet[index],)
+                  );
+                }
+              ),
+            ),
+          ],
         )
     );
   }

@@ -51,7 +51,7 @@ class _HomeWidgetState extends State<HomeWidget> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
-            label: 'Portfel',
+            label: 'Profile',
           ),
         ],
         currentIndex: _selectedIndex,

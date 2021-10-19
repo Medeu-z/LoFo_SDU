@@ -28,9 +28,9 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
             ),
           ),
           const SizedBox(height: 20,),
-          Text('Bissenbay Dauletbayev', style: TextStyle(fontSize: 20),),
+          const Text('Bissenbay Dauletbayev', style: TextStyle(fontSize: 20),),
           const SizedBox(height: 5,),
-          Text('+7 777 000 13 13', style: TextStyle(fontSize: 13),),
+          const Text('+7 777 000 13 13', style: TextStyle(fontSize: 13),),
           const SizedBox(height: 30,),
           Container(
             decoration: BoxDecoration(
@@ -40,7 +40,7 @@ class _ProfilePageWidgetState extends State<ProfilePageWidget> {
             child: Row(
               children: [
                 const SizedBox(width: 10,),
-                Expanded(child: Text('NOTIFICATIONS', style: TextStyle(fontSize: 18,letterSpacing: 1.1),),),
+                const Expanded(child: Text('NOTIFICATIONS', style: TextStyle(fontSize: 18,letterSpacing: 1.1),),),
                 Transform.scale(
                   scale: 0.8,
                   child: CupertinoSwitch(
