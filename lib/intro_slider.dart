@@ -128,13 +128,15 @@ class _IntroSliderPageState extends State<IntroSliderPage> {
             onPrimary: Colors.white,
             shape: StadiumBorder(),
           ),
-          onPressed: (){
+          onPressed: () {
             Navigator.of(context).pushReplacementNamed('/main');
           },
           child: Text(
             "Start",
             style: GoogleFonts.roboto(
-                fontSize: 18, fontWeight: FontWeight.normal, color: Colors.white),
+                fontSize: 18,
+                fontWeight: FontWeight.normal,
+                color: Colors.white),
           ),
         ),
         colorActiveDot: Colors.white,
