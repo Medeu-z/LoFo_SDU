@@ -10,8 +10,11 @@ class SignupWidget extends StatefulWidget {
 }
 
 class _SignupWidgetState extends State<SignupWidget> {
-  InputDecoration getDec(text) {
+  bool hidePassword = true;
+  InputDecoration getDec(text, icon, icon_1) {
     InputDecoration decoration = InputDecoration(
+      prefixIcon: Icon(icon),
+      suffixIcon: icon_1,
       contentPadding: const EdgeInsets.all(25),
       isDense: true,
       filled: true,
@@ -62,19 +65,32 @@ class _SignupWidgetState extends State<SignupWidget> {
                       TextFieldWidget(
                         TextField(
                           controller: name,
-                          decoration: getDec("Name"),
+                          decoration: getDec("Name", Icons.person, null),
                         ),
                       ),
                       TextFieldWidget(
                         TextField(
                           controller: email,
-                          decoration: getDec("Your Email"),
+                          decoration: getDec("Your Email", Icons.email, null),
                         ),
                       ),
                       TextFieldWidget(
                         TextField(
                           controller: password,
-                          decoration: getDec("Password"),
+                          obscureText: hidePassword,
+                          decoration: getDec(
+                              "Password",
+                              Icons.lock,
+                              IconButton(
+                                  onPressed: () {
+                                    setState(() {
+                                      hidePassword = !hidePassword;
+                                    });
+                                  },
+                                  color: Colors.black.withOpacity(0.4),
+                                  icon: Icon(hidePassword
+                                      ? Icons.visibility_off
+                                      : Icons.visibility))),
                         ),
                       ),
                     ],
