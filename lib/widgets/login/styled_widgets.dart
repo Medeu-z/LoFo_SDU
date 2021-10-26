@@ -124,13 +124,13 @@ class CircleContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Scaffold(body: Container(
       width: width,
       height: height,
       child: CustomPaint(
         painter: OpenPainter(color, radius, x, y),
       ),
-    );
+    ),);
   }
 }
 

@@ -48,7 +48,8 @@ class _SignupWidgetState extends State<SignupWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return Scaffold(
+        body: Stack(
       children: [
         CircleContainer(700, 700, Colors.lightBlue, 360, 100, -80),
         CircleContainer(400, 400, Colors.grey.withOpacity(0.8), 220, 360, 820),
@@ -117,6 +118,6 @@ class _SignupWidgetState extends State<SignupWidget> {
           ),
         ])
       ],
-    );
+    ),);
   }
 }
