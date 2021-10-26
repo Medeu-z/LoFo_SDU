@@ -43,58 +43,60 @@ class _SigninWidgetState extends State<SigninWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        CircleContainer(400, 400, Colors.grey.withOpacity(0.8), 200, 435, 175),
-        CircleContainer(700, 700, Colors.lightBlue, 360, 130, -80),
-        CircleContainer(300, 300, Colors.white, 200, 60, -100),
-        ListView(children: [
-          Column(
-            children: <Widget>[
-              Column(
-                children: [
-                  Column(children: [
-                    TextWidget("Welcome Back"),
-                  ]),
-                  Column(
-                    children: [
-                      TextFieldWidget(
-                        TextField(
-                          controller: email,
-                          decoration: getDec("Your Email"),
-                        ),
-                      ),
-                      TextFieldWidget(
-                        TextField(
-                          controller: password,
-                          decoration: getDec("Password"),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      ButtonWidget(
-                          "Sign In", '/main', getList(email, password)),
-                    ],
-                  ),
-                ],
-              ),
-              Container(
-                padding: const EdgeInsets.only(top: 180),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.end,
+    return Scaffold(
+      body: Stack(
+        children: [
+          // CircleContainer(400, 400, Colors.grey.withOpacity(0.8), 200, 435, 175),
+          // CircleContainer(700, 700, Colors.lightBlue, 360, 130, -80),
+          // CircleContainer(300, 300, Colors.white, 200, 60, -100),
+          ListView(children: [
+            Column(
+              children: <Widget>[
+                Column(
                   children: [
-                    TextButtonWidget("Sign Up", '/signup'),
-                    TextButtonWidget("Forgot Passwords", null)
+                    Column(children: [
+                      TextWidget("Welcome Back"),
+                    ]),
+                    Column(
+                      children: [
+                        TextFieldWidget(
+                          TextField(
+                            controller: email,
+                            decoration: getDec("Your Email"),
+                          ),
+                        ),
+                        TextFieldWidget(
+                          TextField(
+                            controller: password,
+                            decoration: getDec("Password"),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        ButtonWidget(
+                            "Sign In", '/main', getList(email, password)),
+                      ],
+                    ),
                   ],
                 ),
-              ),
-            ],
-          ),
-        ])
-      ],
+                Container(
+                  padding: const EdgeInsets.only(top: 50),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      TextButtonWidget("Sign Up", '/signup'),
+                      TextButtonWidget("Forgot Passwords", null)
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ])
+        ],
+      ),
     );
   }
 }

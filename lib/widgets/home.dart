@@ -11,8 +11,9 @@ class HomeWidget extends StatefulWidget {
 }
 
 class _HomeWidgetState extends State<HomeWidget> {
+  String actionBarTitle = 'Lost and Found Items';
   static const textStyle = TextStyle(color: Colors.grey);
-  int _selectedIndex = 1;
+  int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
     HomePageWidget(),
     Text('Index 2: Add',),
@@ -22,17 +23,28 @@ class _HomeWidgetState extends State<HomeWidget> {
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
+      updateActionBarTitle(index);
     });
+  }
+
+  void updateActionBarTitle(int index){
+    if(index == 0){
+      actionBarTitle = 'Lost and Found Items';
+    } else if(index == 1){
+      actionBarTitle = 'Add Item';
+    } else{
+      actionBarTitle = 'My Profile';
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('LoFo SDU'),
+        title: Text(actionBarTitle, style: const TextStyle(fontWeight: FontWeight.bold)),
         centerTitle: true,
         elevation: 0,
-        backgroundColor: Colors.blueAccent.withOpacity(0.1),
+        backgroundColor: Colors.blueAccent.withOpacity(0.1),//white
         foregroundColor: Colors.black,
         automaticallyImplyLeading: false,
       ),
