@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:lofo_app/widgets/profile/profile_page.dart';
 
+import 'home/home_page.dart';
 
 class HomeWidget extends StatefulWidget {
   const HomeWidget({Key? key}) : super(key: key);
@@ -10,11 +12,11 @@ class HomeWidget extends StatefulWidget {
 
 class _HomeWidgetState extends State<HomeWidget> {
   static const textStyle = TextStyle(color: Colors.grey);
-  int _selectedIndex = 0;
+  int _selectedIndex = 1;
   static const List<Widget> _widgetOptions = <Widget>[
-    Text('Index 1: Add',),
-    Text('Index 2: Home',),
-    Text('Index 3: Portfel',),
+    HomePageWidget(),
+    Text('Index 2: Add',),
+    ProfilePageWidget(),
   ];
 
   void _onItemTapped(int index) {
@@ -27,11 +29,12 @@ class _HomeWidgetState extends State<HomeWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('LoFo SDU'),
+        title: const Text('LoFo SDU'),
         centerTitle: true,
         elevation: 0,
-        backgroundColor: Colors.grey,
+        backgroundColor: Colors.blueAccent.withOpacity(0.1),
         foregroundColor: Colors.black,
+        automaticallyImplyLeading: false,
       ),
       body: Center(
         child: _widgetOptions[_selectedIndex],
@@ -39,20 +42,20 @@ class _HomeWidgetState extends State<HomeWidget> {
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(Icons.add_circle_outline),
-            label: 'Add',
-          ),
-          BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: 'Home',
           ),
           BottomNavigationBarItem(
+            icon: Icon(Icons.add_circle_outline),
+            label: 'Add',
+          ),
+          BottomNavigationBarItem(
             icon: Icon(Icons.person),
-            label: 'Portfel',
+            label: 'Profile',
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.greenAccent,
+        selectedItemColor: Colors.black,
         unselectedItemColor: Colors.grey,
         unselectedLabelStyle: textStyle,
         onTap: _onItemTapped,
