@@ -75,7 +75,7 @@ class _IntroSliderPageState extends State<IntroSliderPage> {
                     fontWeight: FontWeight.bold,
                   ),
                   textAlign: TextAlign.center,
-                  overflow: TextOverflow.ellipsis,
+                  // overflow: TextOverflow.ellipsis,
                 ),
                 margin: const EdgeInsets.only(
                   top: 15,
