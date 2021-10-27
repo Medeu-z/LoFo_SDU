@@ -51,8 +51,8 @@ class _SignupWidgetState extends State<SignupWidget> {
     return Scaffold(
         body: Stack(
       children: [
-        CircleContainer(700, 700, Colors.lightBlue, 360, 100, -80),
-        CircleContainer(400, 400, Colors.grey.withOpacity(0.8), 220, 360, 820),
+        // CircleContainer(700, 700, Colors.lightBlue, 360, 100, -80),
+        // CircleContainer(400, 400, Colors.grey.withOpacity(0.8), 220, 360, 820),
         ListView(children: [
           Column(
             children: <Widget>[
@@ -105,7 +105,7 @@ class _SignupWidgetState extends State<SignupWidget> {
                 ],
               ),
               Container(
-                padding: const EdgeInsets.only(top: 100, right: 30),
+                padding: const EdgeInsets.only(top: 10, right: 30),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   crossAxisAlignment: CrossAxisAlignment.end,
