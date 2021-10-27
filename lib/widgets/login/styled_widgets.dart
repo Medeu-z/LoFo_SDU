@@ -73,10 +73,8 @@ class ButtonWidget extends StatelessWidget {
             //     );
             //   },
             // );
-            for (var item in dataList) {
-              print(item);
-            }
-            Navigator.of(context).pushNamed(route);
+
+            Navigator.of(context).pushReplacementNamed(route);
           },
           style: OutlinedButton.styleFrom(
               primary: Colors.black,
@@ -102,7 +100,7 @@ class TextButtonWidget extends StatelessWidget {
             primary: Colors.black,
           ),
           onPressed: () {
-            Navigator.of(context).pushNamed(route);
+            Navigator.of(context).pushReplacementNamed(route);
           },
           child: Text(
             text,
