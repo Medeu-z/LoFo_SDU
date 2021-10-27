@@ -16,8 +16,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'LOFO',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+      theme: ThemeData(//.withOpacity(0.1)
+        primarySwatch: Colors.lightBlue,
       ),
       debugShowCheckedModeBanner: false,
       initialRoute: '/slider',
@@ -26,6 +26,10 @@ class MyApp extends StatelessWidget {
         '/main': (context) => const HomeWidget(),
         '/login': (context) => const SigninWidget(),
         '/signup': (context) => const SignupWidget(),
+<<<<<<< HEAD
+=======
+        '/item_information': (context) => const LoFoItemInfo()
+>>>>>>> 2a8e94db0f17d3d6dd4a43e1423ce5fa0b802ae1
       },
     );
   }

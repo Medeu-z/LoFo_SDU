@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lofo_app/widgets/profile/profile_page.dart';
 
+import 'add_item/add_item_page.dart';
 import 'home/home_page.dart';
 
 class HomeWidget extends StatefulWidget {
@@ -16,7 +17,7 @@ class _HomeWidgetState extends State<HomeWidget> {
   int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
     HomePageWidget(),
-    Text('Index 2: Add',),
+    AddItemPageWidget(),
     ProfilePageWidget(),
   ];
 
