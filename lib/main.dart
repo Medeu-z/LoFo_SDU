@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:lofo_app/widgets/home/lofo_info.dart';
 import 'widgets/home.dart';
 import 'widgets/intro_slider.dart';
 import 'widgets/login/signin.dart';
@@ -27,7 +26,6 @@ class MyApp extends StatelessWidget {
         '/main': (context) => const HomeWidget(),
         '/login': (context) => const SigninWidget(),
         '/signup': (context) => const SignupWidget(),
-        '/item_information': (context) => const LoFoItemInfo(),
       },
     );
   }
