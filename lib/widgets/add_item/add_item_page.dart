@@ -2,6 +2,8 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:image_cropper/image_cropper.dart';
+import 'package:image_picker/image_picker.dart';
 
 import 'package:lofo_app/widgets/login/styled_widgets.dart';
 
@@ -36,6 +38,33 @@ class _AddItemPageWidgetState extends State<AddItemPageWidget> {
       );
     }
   }
+
+  getImage(ImageSource imageSource) async {
+    // File image = await ImagePicker.pickImage(source: ImageSource.camera);
+    final ImagePicker _picker = ImagePicker();
+    XFile? image = await _picker.pickImage(source: imageSource);
+    if (image != null){
+      File? cropped = await ImageCropper.cropImage(sourcePath: image.path,
+          aspectRatio: CropAspectRatio(ratioX: 1, ratioY: 1),
+          compressQuality: 100,
+          maxWidth: 700,
+          maxHeight: 700,
+          compressFormat: ImageCompressFormat.jpg,
+          androidUiSettings: const AndroidUiSettings(
+            toolbarColor: Colors.blue,
+            toolbarTitle: "RPS Cropper",
+            statusBarColor: Colors.blue,
+            backgroundColor: Colors.white,
+          )
+      );
+      setState(() {
+        _selectedFile = cropped;
+      });
+    }
+
+
+  }
+
   List <String> spinnerItems = ['Lost', 'Found'] ;
 
   void changed(String data){
@@ -63,9 +92,9 @@ class _AddItemPageWidgetState extends State<AddItemPageWidget> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    ElevatedButton(onPressed:(){
+                    ElevatedButton(onPressed: () {getImage(ImageSource.camera);
                     }, child:Text("from camera", style: TextStyle(color: Colors.white))),
-                    ElevatedButton(onPressed:(){
+                    ElevatedButton(onPressed:(){ getImage(ImageSource.gallery);
                     }, child:Text("from device", style: TextStyle(color: Colors.white),)),
                   ],
                 ),
