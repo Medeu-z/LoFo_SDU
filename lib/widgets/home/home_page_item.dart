@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:lofo_app/model/record.dart';
 
 class ItemInfoData{
   final String name;
@@ -11,7 +12,7 @@ class ItemInfoData{
 }
 
 class HomePageItemWidget extends StatefulWidget {
-  final ItemInfoData data;
+  final Record data;
 
   const HomePageItemWidget({Key? key, required this.data,}) : super(key: key);
   @override
@@ -33,9 +34,9 @@ class _HomePageItemWidgetState extends State<HomePageItemWidget> {
               border: Border.all(color: Colors.black.withOpacity(0.2)),
               borderRadius: const BorderRadius.all(Radius.circular(20)),
               image: DecorationImage(
-                fit: BoxFit.fill,
-                image: AssetImage(widget.data.imageURL)
-                // image: NetworkImage(widget.imageURL),
+                fit: BoxFit.fitWidth,
+                // image: AssetImage(widget.data.image)
+                image: NetworkImage(widget.data.image),
               ),
             ),
               child: Column(
@@ -43,7 +44,7 @@ class _HomePageItemWidgetState extends State<HomePageItemWidget> {
                 children: [
                   Opacity(
                     opacity: 0.8,
-                    child: Text(widget.data.name,
+                    child: Text(widget.data.title,
                       style: TextStyle(fontSize: 30,color: Colors.white,backgroundColor: Colors.black.withOpacity(0.5)),),
                   )
                 ],
@@ -62,7 +63,7 @@ class _HomePageItemWidgetState extends State<HomePageItemWidget> {
                     const SizedBox(width: 5,),
                     const Icon(Icons.content_paste_sharp),
                     const SizedBox(width: 5,),
-                    Text(widget.data.lostOrFound,style: const TextStyle(
+                    Text(widget.data.status,style: const TextStyle(
                       fontSize: 18,fontWeight: FontWeight.w700
                     ),),
                     const SizedBox(width: 5,),
