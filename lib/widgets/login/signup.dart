@@ -49,75 +49,83 @@ class _SignupWidgetState extends State<SignupWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Stack(
-      children: [
-        // CircleContainer(700, 700, Colors.lightBlue, 360, 100, -80),
-        // CircleContainer(400, 400, Colors.grey.withOpacity(0.8), 220, 360, 820),
-        ListView(children: [
-          Column(
-            children: <Widget>[
-              Column(
-                children: [
-                  Column(children: [
-                    TextWidget("Create Account"),
-                  ]),
-                  Column(
-                    children: [
-                      TextFieldWidget(
-                        TextField(
-                          controller: name,
-                          decoration: getDec("Name", Icons.person, null),
-                        ),
-                      ),
-                      TextFieldWidget(
-                        TextField(
-                          controller: email,
-                          decoration: getDec("Your Email", Icons.email, null),
-                        ),
-                      ),
-                      TextFieldWidget(
-                        TextField(
-                          controller: password,
-                          obscureText: hidePassword,
-                          decoration: getDec(
-                              "Password",
-                              Icons.lock,
-                              IconButton(
-                                  onPressed: () {
-                                    setState(() {
-                                      hidePassword = !hidePassword;
-                                    });
-                                  },
-                                  color: Colors.black.withOpacity(0.4),
-                                  icon: Icon(hidePassword
-                                      ? Icons.visibility_off
-                                      : Icons.visibility))),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      ButtonWidget(
-                          "Sign Up", '/main', getList(name, email, password)),
-                    ],
-                  ),
-                ],
-              ),
-              Container(
-                padding: const EdgeInsets.only(top: 10, right: 30),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.end,
+      body: Stack(
+        children: [
+          // CircleContainer(700, 700, Colors.lightBlue, 360, 100, -80),
+          // CircleContainer(400, 400, Colors.grey.withOpacity(0.8), 220, 360, 820),
+          ListView(children: [
+            Column(
+              children: <Widget>[
+                Column(
                   children: [
-                    TextButtonWidget("Sign In", '/login'),
+                    Column(children: [
+                      TextWidget("Create Account"),
+                    ]),
+                    Column(
+                      children: [
+                        TextFieldWidget(
+                          TextField(
+                            controller: name,
+                            decoration: getDec("Name", Icons.person, null),
+                          ),
+                        ),
+                        TextFieldWidget(
+                          TextField(
+                            controller: email,
+                            decoration: getDec("Your Email", Icons.email, null),
+                          ),
+                        ),
+                        TextFieldWidget(
+                          TextField(
+                            controller: email,
+                            decoration:
+                                getDec("Phone Number", Icons.phone, null),
+                          ),
+                        ),
+                        TextFieldWidget(
+                          TextField(
+                            controller: password,
+                            obscureText: hidePassword,
+                            decoration: getDec(
+                                "Password",
+                                Icons.lock,
+                                IconButton(
+                                    onPressed: () {
+                                      setState(() {
+                                        hidePassword = !hidePassword;
+                                      });
+                                    },
+                                    color: Colors.black.withOpacity(0.4),
+                                    icon: Icon(hidePassword
+                                        ? Icons.visibility_off
+                                        : Icons.visibility))),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        ButtonWidget(
+                            "Sign Up", '/main', getList(name, email, password)),
+                      ],
+                    ),
                   ],
                 ),
-              ),
-            ],
-          ),
-        ])
-      ],
-    ),);
+                Container(
+                  padding: const EdgeInsets.only(top: 10, right: 30),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      TextButtonWidget("Sign In", '/login'),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ])
+        ],
+      ),
+    );
   }
 }
