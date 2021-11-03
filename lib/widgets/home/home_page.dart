@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:lofo_app/api_client/api_client.dart';
+import 'package:lofo_app/model/record.dart';
 import 'package:lofo_app/widgets/item_info/item_info.dart';
 import 'category_top.dart';
 import 'home_page_item.dart';
@@ -26,22 +28,34 @@ class _HomePageWidgetState extends State<HomePageWidget> {
             const TopListviewWidget(),
             const SizedBox(height: 10,),
             Expanded(
-              child: ListView.builder(
-                physics: const BouncingScrollPhysics(),
-                itemCount: dataSet.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return GestureDetector(
-                      onTap: (){
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => LoFoItemInfo(data: dataSet[index]),
-                          ),
-                        );
-                        // Navigator.of(context).pushNamed('/item_information');
-                      },
-                      child: HomePageItemWidget(data: dataSet[index],)
-                  );
+              child: FutureBuilder<List<Record>>(
+                future: ApiClient().getPost(),
+                builder: (context, snapshot){
+                  if (snapshot.hasError) {
+                    return Text('${snapshot.error}');
+                  }
+                  if(!snapshot.hasData){
+                    return const Center(child: Text('LOADING'));
+                  }else{
+                    return ListView.builder(
+                        physics: const BouncingScrollPhysics(),
+                        itemCount: snapshot.data!.length,
+                        itemBuilder: (BuildContext context, int index) {
+                          return GestureDetector(
+                              onTap: (){
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => LoFoItemInfo(data: snapshot.data![index]),
+                                  ),
+                                );
+                                // Navigator.of(context).pushNamed('/item_information');
+                              },
+                              child: HomePageItemWidget(data: snapshot.data![index],)
+                          );
+                        }
+                    );
+                  }
                 }
               ),
             ),

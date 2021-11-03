@@ -17,7 +17,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'LOFO',
-      theme: ThemeData(//.withOpacity(0.1)
+      theme: ThemeData(
+        //.withOpacity(0.1)
         primarySwatch: Colors.lightBlue,
       ),
       debugShowCheckedModeBanner: false,
